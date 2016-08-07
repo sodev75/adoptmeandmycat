@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Age Preferences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start age</th>
+      <th>End age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @age_preferences.each do |age_preference| %>
+      <tr>
+        <td><%= age_preference.age_range %></td>
+        <td><%= link_to 'Show', age_preference %></td>
+        <td><%= link_to 'Edit', edit_age_preference_path(age_preference) %></td>
+        <td><%= link_to 'Destroy', age_preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Age Preference', new_age_preference_path %>

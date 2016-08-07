@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_age: MyString
+  end_age: MyString
+
+two:
+  start_age: MyString
+  end_age: MyString

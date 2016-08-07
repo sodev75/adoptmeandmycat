@@ -1,0 +1,12 @@
+<h2>Se créer un compte</h2>
+<% if flash[:wrong] %>
+    <div class="notice"><%= flash[:wrong] %></div>
+<% end %>
+<%= form_tag(controller:"register", action:"send_data") %>
+<%= label_tag 'Ton email' %>
+<%= text_field_tag 'email' %>
+<%= label_tag 'Ton mot de passe' %>
+<%= password_field_tag 'password' %>
+<br>
+<br>
+<%= submit_tag "s'enregister" %>

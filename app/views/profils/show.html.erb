@@ -1,0 +1,74 @@
+<h2>Mon profil</h2>
+<p id="notice"><%= notice %></p>
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+<% end %>
+<div class="row">
+    <div class="col-sm-6">
+      <br>
+      <div class="row">
+        <div class="col-sm-12">
+          <img class="col-sm-6 thumbnail" src="/lovers/<%= @profil.picture %>" alt="<%= @profil.picture %>">
+          <div class="col-sm-6">
+            <p>
+              <strong>Name:</strong>
+              <%= @profil.name %>
+            </p>
+
+            <p>
+              <strong>Age:</strong>
+              <%= @profil.age %>
+            </p>
+
+            <p>
+              <strong>Sexe:</strong>
+              <%= @profil.sexe %>
+            </p>
+            <% if @btnlike == TRUE %>
+              <%= button_to '♡ Like me baby', {:controller => "likes", :action => "create", :profil_id => @profil.id} , {:method=>:post} %>
+            <% else %>
+              <p><strong>Like ♡: </strong>Vous avez déjà liké ce profil</p>
+            <% end%>
+            <br>
+            <p>
+              <strong>Coloreyes:</strong>
+                <%= @profil.coloreyes %>
+            </p>
+
+            <p>
+              <strong>Hair:</strong>
+              <%= @profil.hair %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <p>
+        <strong>City:</strong>
+        <%= @profil.city %>
+      </p>
+      <p>
+        <strong>Hobbies:</strong>
+        <%= @profil.hobbies %>
+      </p>
+
+
+      <p>
+      <strong>Message:</strong>
+      <%= @profil.message %>
+      </p>
+    </div>
+    <div class="col-sm-6">
+      <p>
+        <strong>Catname:</strong>
+        <%= @profil.catname %>
+      </p>
+
+      <p>
+        <strong>Colorcat:</strong>
+        <%= @profil.colorcat %>
+      </p>
+
+    </div>
+</div>

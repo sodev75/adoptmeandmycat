@@ -1,0 +1,9 @@
+<% if flash[:logout] %>
+  <div class="notice"><%= flash[:logout] %></div>
+<% end %>
+
+<div class="jumbotron">
+  <h2>Rencontres entre amis des chats.</h2>
+  <p>Ca sera moi et .. mon chat.</p>
+  <%= link_to "Se créer un compte", register_path, { :class=>"btn btn-danger" }  %>
+</div>

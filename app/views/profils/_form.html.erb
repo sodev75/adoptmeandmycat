@@ -1,0 +1,101 @@
+<%= form_for(profil) do |f| %>
+  <% if profil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profil.errors.count, "error") %> prohibited this profil from being saved:</h2>
+
+      <ul>
+      <% profil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <br>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12">
+          <img class="col-sm-6 thumbnail" src="/lovers/<%= profil.picture %>" alt="<%= profil.picture %>">
+          <div class="field col-sm-6">
+            <%= f.label "changer de photo" %>
+            <%= f.text_field :picture, class:"form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label "Nom" %>
+        <%= f.text_field :name, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Ville" %>
+        <%= f.text_field :city, class:"form-control" %>
+      </div>
+      <br>
+      <div class="field">
+        <h4>Tes paramètres qui ne seront pas affichés sur ton public </h4>
+        <div class="col-sm-6">
+          <%= label_tag 'Tes préférences' %>
+          <%= select_tag "preference", options_from_collection_for_select(@preferences, "id", "name"), class:"selectpicker" %>
+        </div>
+        <div class="col-sm-6">
+          <%= label_tag "La tranche d'age preferée" %>
+          <%= select_tag "age_preference", options_from_collection_for_select(@age_preferences, "id", "age_range"), class:"selectpicker" %>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-offset-1  col-sm-5">
+      <div class="field">
+        <%= f.label :age %>
+        <%= f.text_field :age, class:"form-control" %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label "Couleur de tes yeux" %>
+        <%= f.text_field :coloreyes, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Couleur de tes cheveux" %>
+        <%= f.text_field :hair, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Sexe" %>
+        <%= select_tag "sexe", options_for_select(['Homme', 'Femme']), class:"selectpicker" %>
+      </div>
+      <div class="field">
+        <%= f.label "Tes hobbies" %>
+        <%= f.text_field :hobbies, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Nom de ton chat" %>
+        <%= f.text_field :catname, class:"form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Couleur de ton chat" %>
+        <%= f.text_field :colorcat, class:"form-control" %>
+      </div>
+
+
+
+      <div class="field">
+        <%= f.label :message %>
+        <%= f.text_field :message, class:"form-control" %>
+      </div>
+      <br>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+    </div>
+
+  </div>
+
+
+
+
+<% end %>

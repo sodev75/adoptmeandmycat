@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start age:</strong>
+  <%= @age_preference.age_range %>
+</p>
+
+
+<%= link_to 'Edit', edit_age_preference_path(@age_preference) %> |
+<%= link_to 'Back', age_preferences_path %>

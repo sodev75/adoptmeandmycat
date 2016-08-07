@@ -1,0 +1,22 @@
+<%= form_for(age_preference) do |f| %>
+  <% if age_preference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(age_preference.errors.count, "error") %> prohibited this age_preference from being saved:</h2>
+
+      <ul>
+      <% age_preference.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :age_range %>
+    <%= f.text_field :age_range %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AdoptMeandMyCat</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "sumoselect.css" %>
+    <%= javascript_include_tag 'jquery.sumoselect.min.js' %>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a href="/" class="navbar-brand">AdoptMeAndMyCat</a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+                  <ul class="nav navbar-nav">
+                    <li class="active">
+                      <%= link_to "Voir des lovers", space_path %>
+                    </li>
+                    <% if session[:idprofil] %>
+                    <li>
+                      <%= link_to "Modifier mon profil", space_editprofil_path(:id =>session[:idprofil]) %>
+                    </li>
+                    <li>
+                      <%= link_to "Voir mon profil", space_myprofil_path(:id =>session[:idprofil]) %>
+                    </li>
+                    <li>
+                      <%= link_to "Voir mes messages", space_message_path %>
+                    </li>
+
+                    <% end %>
+
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="nameaccount">
+                      <%= session[:email] %>
+                    </li>
+                    <li class="active">
+                      <%= link_to "Se déconnecter", login_logout_path %>
+                    </li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div><!--/.container-fluid -->
+      </nav>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+json.array! @age_preferences, partial: 'age_preferences/age_preference', as: :age_preference

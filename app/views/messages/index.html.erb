@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Messages</h1>
+<br>
+<table>
+  <thead>
+
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.created_at %> </td>
+        <td>De la part de
+          <% if message.profil_sender_id_id == 13  %>
+          <%= "Administrateur" %>
+          <% else %>
+          <%= message.profil_sender_id_id %></td>
+
+          <% end %>
+        <td><%= message.content %></td>
+        <td><%= link_to 'Répondre', space_newmessage_path(message.profil_sender_id_id) %></td>
+        <td><%= link_to 'Effacer', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h1>Envoyer un message à </h1>
+
+<% @match.each do |matchlove| %>
+
+  <% if matchlove.profil_id_id == session[:idprofil] %>
+    <div class="profil col-sm-2">
+      <a href="<%= space_newmessage_path(matchlove.profilmatch_two.id) %>"><img src="/lovers/<%= matchlove.profilmatch_two.picture %>" alt="" class="thumbnail col-sm-12"></a>
+      <p>  <%= matchlove.profilmatch_two.name %></p>
+
+
+    </div>
+
+  <% else %>
+  <div class="profil col-sm-2">
+    <a href="<%= space_newmessage_path(matchlove.profilmatch_one.id) %>"><img src="/lovers/<%= matchlove.profilmatch_one.picture %>" alt="" class="thumbnail col-sm-12"></a>
+    <p>   <%= matchlove.profilmatch_one.name %></p>
+
+
+  </div>
+
+  <% end %>
+
+<% end %>

@@ -1,0 +1,21 @@
+
+    <h2>Espace privé - Home</h2>
+
+    <% if flash[:bienvenue] %>
+      <div class="bienvenue"><%= flash[:bienvenue] %></div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <br>
+    <h3>Liste de lovers susceptibles de me plaire</h3>
+      <%   for lover_profil in @list_profil_lover  %>
+            <div class="profil col-sm-2">
+              <a href="<%= space_profil_path(lover_profil.id) %>"><img src="/lovers/<%= lover_profil.picture %>" alt="" class="thumbnail col-sm-12"></a>
+              <p><%= lover_profil.name%> - <%= lover_profil.age%> ans</p>
+
+
+            </div>
+
+      <% end %>
